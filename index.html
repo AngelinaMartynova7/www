@@ -22,7 +22,7 @@
           function Task (){
               return(
                   <div className="box">
-                      <div className="text">Какой-либо текст</div>
+                      <div className="text">props.children</div>
                       <button onClick={Edit} className="btn light">Редактировать</button>
                       <button onClick={Remove} className="btn red">Удалить</button>
                   </div>
@@ -33,7 +33,9 @@
           const root = ReactDOM.createRoot(container);
           root.render(
               <div className="field">
-                  <Task />
+                  <Task>Hey, it is me!</Task>
+                  <Task>Task number 2!</Task>
+                  <Task>Hello World!</Task>
               </div>);
       </script>
   </body>
