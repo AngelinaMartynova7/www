@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Hello World</title>
-    <script src="node_modules/react/umd/react.production.min.js"></script>
-    <script src="node_modules/react-dom/umd/react-dom.production.min.js"></script>
-    <script src="node_modules/@babel/standalone/babel.min.js"></script>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="css/main.css">
+      <title>React JS</title>
+      <script src="node_modules/react/umd/react.production.min.js"></script>
+      <script src="node_modules/react-dom/umd/react-dom.production.min.js"></script>
+      <script src="node_modules/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
       <div id="program"></div>
       <script type="text/babel">
-          function Game(props){
-                  return(
-                      <div>
-                          <h1>{props.name}</h1>
-                          <h2>{props.age}</h2>
-                      </div>
-                  )
-              }
+          function Edit (){
+              alert("Нажата кнопка Редактировать");
+          }
+          function Remove (){
+              alert("Нажата кнопка Удалить");
+          }
+          function Task (){
+              return(
+                  <div className="box">
+                      <div className="text">Какой-либо текст</div>
+                      <button onClick={Edit} className="btn light">Редактировать</button>
+                      <button onClick={Remove} className="btn red">Удалить</button>
+                  </div>
+              )
+          }
+
           const container = document.getElementById('program');
           const root = ReactDOM.createRoot(container);
           root.render(
-              <div>
-                  <Game name="Forza1" age="18+" />
-                  <Game name="Forza2" age="17+" />
-                  <Game name="Forza3" age="16+" />
+              <div className="field">
+                  <Task />
               </div>);
       </script>
   </body>
