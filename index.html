@@ -20,7 +20,12 @@
               }
           const container = document.getElementById('program');
           const root = ReactDOM.createRoot(container);
-          root.render(<Game name="Forza" age="18+" />);
+          root.render(
+              <div>
+                  <Game name="Forza1" age="18+" />
+                  <Game name="Forza2" age="17+" />
+                  <Game name="Forza3" age="16+" />
+              </div>);
       </script>
   </body>
 </html>
