@@ -39,13 +39,58 @@
 
               );
           }
+          function Task(props) {
+              const [editClicked, setEditClicked] = useState(false);
+              const [text, setText] = useState(props.children);
+              const [inputValue, setInputValue] = useState(props.children);
 
-          function Save (){
-              alert("Нажата кнопка Удалить");
+              return (
+                  <div className="box">
+                      {editClicked ? (
+                          <>
+                              <label>
+                                  <input
+                                      type="text"
+                                      value={inputValue}
+                                      onChange={(e) => setInputValue(e.target.value)}
+                                  />
+                              </label>
+                              <button
+                                  onClick={() => {
+                                      setText(inputValue);
+                                      setEditClicked(false);
+                                  }}
+                                  className="btn light"
+                              >
+                                  Сохранить
+                              </button>
+                          </>
+                      ) : (
+                          <>
+                              <div className="text">{text}</div>
+                              <button
+                                  onClick={() => setEditClicked(true)}
+                                  className="btn light"
+                              >
+                                  Редактировать
+                              </button>
+                              <button
+                                  onClick={() => alert("Нажата кнопка Удалить")}
+                                  className="btn red"
+                              >
+                                  Удалить
+                              </button>
+                          </>
+                          )}
+                  </div>
+              );
           }
-          function Task (props){
+
+          /*function Task (props){
               const [editClicked, setEditClicked] = useState(false);
               const [deleteClicked, setDeleteClicked] = useState(false);
+              const [text, setText] = useState(props.children);
+              const [inputValue, setInputValue] = useState(props.children);
 
               return(
                   <div className="box">
@@ -68,15 +113,39 @@
                       >
                           Удалить
                       </button>
-                      <div>
-                          {editClicked ? "Кнопка Редактировать нажата" : "Кнопка Редактировать не нажата"}
-                      </div>
-                      <div>
-                          {deleteClicked ? "Кнопка Удалить нажата" : "Кнопка Удалить не нажата"}
-                      </div>
                   </div>
               )
           }
+
+          function TaskEdit (props){
+              const [saveClicked, setSaveClicked] = useState(false);
+
+              return(
+                  <div className="box">
+                      <label>
+                          <textarea defaultValue={props.children}></textarea>
+                      </label>
+                      <button
+                          onClick={() => {
+                              setSaveClicked(!saveClicked);
+                              alert("Нажата кнопка Сохранить");
+                          }}
+                          className="btn success"
+                      >
+                          Сохранить
+                      </button>
+                  </div>
+              )
+          }
+
+          function Save (){
+              if (setEditClicked) {
+                  return TaskEdit ();
+              } else {
+                  return Task ();
+              }
+          }*/
+
 
           const container = document.getElementById('program');
           const root = ReactDOM.createRoot(container);

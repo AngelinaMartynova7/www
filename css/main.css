@@ -44,6 +44,24 @@ button.btn {
     border: 2px solid #b6821a;
 }
 
+textarea {
+    resize: none;
+    background-color: #dda66d;
+    border: 1.5px solid silver;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 0.7em;
+    width: 90%;
+    outline: none;
+}
+
+textarea:focus {
+    border: 1.5px solid #6d79cd;
+}
+.btn.success{
+    background-color: #4fc966;
+    border: 2px solid#2aa24f;
+}
 .btn.light:hover {
     background-color: #2a89a2;
     border-color: #1d6f85;
@@ -52,4 +70,9 @@ button.btn {
 .btn.red:hover {
     background-color: #b6821a;
     border-color: #946912;
+}
+
+.btn.success:hover{
+    background-color: #2aa24f;
+    border: 2px solid #1e853e;
 }
