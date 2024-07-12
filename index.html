@@ -13,18 +13,62 @@
   <body>
       <div id="program"></div>
       <script type="text/babel">
+          const { useState } = React;
+          function Check (){
+              const [checked, setChecked] = useState(true);
+
+              let message;
+              if (checked) {
+                  message = "выбран";
+              } else {
+                  message = "не выбран";
+              }
+
+              return (
+                  <div className="box">
+                      <div className="text">Чекбокс {message}</div>
+                      <label>
+                          <input
+                              type="checkbox"
+                              checked={checked}
+                              onChange={() => setChecked(!checked)}
+                              />
+                      </label>
+                  </div>
+
+              );
+          }
+
           function Edit (){
               alert("Нажата кнопка Редактировать");
           }
           function Remove (){
               alert("Нажата кнопка Удалить");
           }
-          function Task (){
+          function Save (){
+              alert("Нажата кнопка Удалить");
+          }
+          function Task (props){
+              const [editClicked, setEditClicked] = useState(false);
+              const [deleteClicked, setDeleteClicked] = useState(false);
+
               return(
                   <div className="box">
                       <div className="text">props.children</div>
-                      <button onClick={Edit} className="btn light">Редактировать</button>
-                      <button onClick={Remove} className="btn red">Удалить</button>
+                      <button onClick={() => {
+                          setEditClicked(!editClicked);
+                          alert("Нажата кнопка Редактировать");
+                      }}
+                              className="btn light">
+                          Редактировать
+                      </button>
+                      <button onClick={() => {
+                          setDeleteClicked(!deleteClicked);
+                          alert("Нажата кнопка Удалить");
+                      }}
+                              className="btn red">
+                          Удалить
+                      </button>
                   </div>
               )
           }
@@ -36,6 +80,7 @@
                   <Task>Hey, it is me!</Task>
                   <Task>Task number 2!</Task>
                   <Task>Hello World!</Task>
+                  <Check />
               </div>);
       </script>
   </body>
